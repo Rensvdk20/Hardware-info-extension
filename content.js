@@ -1,8 +1,6 @@
-// Find all a elements on the page
+// Get the products
 const products = document.getElementsByClassName("product");
 let totalPrice = 0;
-
-// console.log(products);
 
 for (let i = 0; i < products.length; i++) {
 	const priceColumn = products[i].children[2];
@@ -27,7 +25,7 @@ const productsTable = document.querySelector(".wishlist__product-table");
 
 //Create a div for the total price
 const div = document.createElement("div");
-div.innerHTML = `<h2>Total price: ${totalPrice.toFixed(2)}€</h2>`;
+div.innerHTML = `<h2>Total price: €${totalPrice.toFixed(2)}</h2>`;
 
 //Add the total price to the div
 productsTable.appendChild(div);
