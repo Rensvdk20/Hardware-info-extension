@@ -4,19 +4,23 @@ let totalPrice = 0;
 
 for (let i = 0; i < products.length; i++) {
 	const priceColumn = products[i].children[2];
+	const amountColumn = products[i].children[3];
 	//Check if there is a price
 	if (priceColumn.contains(priceColumn.querySelector("h4 a"))) {
 		//Get the HTML text
-		elementText = priceColumn.querySelector("h4 a").innerText;
+		let priceText = priceColumn.querySelector("h4 a").innerText;
 
 		//Clean the html text
-		elementText = elementText.replace("€ ", "");
+		priceText = priceText.replace("€ ", "");
 
 		//Change the text to a float
-		const price = parseFloat(elementText.replace(",", "."));
+		const price = parseFloat(priceText.replace(",", "."));
+
+		//Get how many times the product is selected
+		const amount = amountColumn.querySelector("input").value;
 
 		//Add the price to the total price
-		totalPrice += price;
+		totalPrice += price * amount;
 	}
 }
 
